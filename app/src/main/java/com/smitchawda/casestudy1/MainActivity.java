@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+/**
+ * Name: Smit Chawda
+ */
 public class MainActivity extends AppCompatActivity {
     //XML Design Components
     TextView results;
