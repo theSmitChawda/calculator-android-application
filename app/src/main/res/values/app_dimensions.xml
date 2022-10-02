@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--    result area dimensions-->
+    <dimen name="resultSize">48dp</dimen>
+
+
+<!--    function area dimensions-->
+    <dimen name="buttonTextSize">30dp</dimen>
+
+</resources>
