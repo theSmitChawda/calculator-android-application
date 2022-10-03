@@ -519,31 +519,39 @@ public class MainActivity extends AppCompatActivity {
 
     private void initializeDesignComponents(){
         //Component Initialization
-        results = findViewById(R.id.results);
-        btnClear = findViewById(R.id.btnClear);
-        btnBackSpace = findViewById(R.id.btnBackSpace);
-        btnPercentage = findViewById(R.id.btnPercent);
-        btnDecimal = findViewById(R.id.btnDecimal);
-        btnDivide = findViewById(R.id.btnDivide);
-        btnMultiply = findViewById(R.id.btnMultiply);
-        btnAdd = findViewById(R.id.btnAdd);
-        btnSubstract = findViewById(R.id.btnSubstract);
-        btnEquals = findViewById(R.id.btnEqual);
+        try {
+            results = findViewById(R.id.results);
+            btnClear = findViewById(R.id.btnClear);
+            btnBackSpace = findViewById(R.id.btnBackSpace);
+            btnPercentage = findViewById(R.id.btnPercent);
+            btnDecimal = findViewById(R.id.btnDecimal);
+            btnDivide = findViewById(R.id.btnDivide);
+            btnMultiply = findViewById(R.id.btnMultiply);
+            btnAdd = findViewById(R.id.btnAdd);
+            btnSubstract = findViewById(R.id.btnSubstract);
+            btnEquals = findViewById(R.id.btnEqual);
 
-        btn0 = findViewById(R.id.btn0);
-        btn1 = findViewById(R.id.btn1);
-        btn2 = findViewById(R.id.btn2);
-        btn3 = findViewById(R.id.btn3);
-        btn4 = findViewById(R.id.btn4);
-        btn5 = findViewById(R.id.btn5);
-        btn6 = findViewById(R.id.btn6);
-        btn7 = findViewById(R.id.btn7);
-        btn8 = findViewById(R.id.btn8);
-        btn9 = findViewById(R.id.btn9);
+            btn0 = findViewById(R.id.btn0);
+            btn1 = findViewById(R.id.btn1);
+            btn2 = findViewById(R.id.btn2);
+            btn3 = findViewById(R.id.btn3);
+            btn4 = findViewById(R.id.btn4);
+            btn5 = findViewById(R.id.btn5);
+            btn6 = findViewById(R.id.btn6);
+            btn7 = findViewById(R.id.btn7);
+            btn8 = findViewById(R.id.btn8);
+            btn9 = findViewById(R.id.btn9);
 
-        btnMadd = findViewById(R.id.btnMadd);
-        btnMsub = findViewById(R.id.btnMsub);
-        btnMr = findViewById(R.id.btnMr);
-        btnMclear = findViewById(R.id.btnMclear);
+            btnMadd = findViewById(R.id.btnMadd);
+            btnMsub = findViewById(R.id.btnMsub);
+            btnMr = findViewById(R.id.btnMr);
+            btnMclear = findViewById(R.id.btnMclear);
+            btnExponent = findViewById(R.id.btnExponent);
+        }
+        catch(Exception e)
+        {
+            System.out.println("Component Init failed");
+            e.printStackTrace();
+        }
     }
 }
