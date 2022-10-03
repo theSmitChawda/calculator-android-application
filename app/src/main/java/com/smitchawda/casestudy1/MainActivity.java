@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
             System.out.println("Component Init Failed.");
             e.printStackTrace();
         }
-        //Adding listners
+        //Adding listeners
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -449,6 +449,14 @@ public class MainActivity extends AppCompatActivity {
         btnMr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(isOperatorPresent)
+                {
+                    rightOperand=memory;
+                }
+                else
+                {
+                    leftOperand=memory;
+                }
                 results.setText(memory + "");
             }
         });
@@ -458,7 +466,6 @@ public class MainActivity extends AppCompatActivity {
                 memory = 0.0;
             }
         });
-
         btnEquals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -496,11 +503,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
             case "^": {
-                for(int i=0; i<rightOperand; i++)
-                {
-                    leftOperand *= leftOperand;
-                }
-                results.setText( leftOperand + "");
+                results.setText( Math.pow(leftOperand,rightOperand) + "");
                 break;
             }
             case "/": {
