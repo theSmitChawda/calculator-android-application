@@ -14,7 +14,7 @@ import android.widget.TextView;
  * Name: Smit Chawda
  */
 public class MainActivity extends AppCompatActivity {
-    //--XML Design Components--
+//    XML configuration
     TextView results;
     Button btnClear;
     Button btnBackSpace;
@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnDecimal;
     Button btnEquals;
     Button btnExponent;
+
     //numericals
     Button btn0;
     Button btn1;
@@ -37,11 +38,13 @@ public class MainActivity extends AppCompatActivity {
     Button btn7;
     Button btn8;
     Button btn9;
+
     //memory functions
     Button btnMadd;
     Button btnMsub;
     Button btnMr;
     Button btnMclear;
+
     //Operations variable
     double leftOperand;
     double rightOperand;
@@ -486,7 +489,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     public void calculateResults(){
         switch (operator)
         {
@@ -518,8 +520,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
-
     private void initializeDesignComponents(){
         //Component Initialization
         try {
