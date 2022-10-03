@@ -14,7 +14,7 @@ import android.widget.TextView;
  * Name: Smit Chawda
  */
 public class MainActivity extends AppCompatActivity {
-    //XML Design Components
+    //--XML Design Components--
     TextView results;
     Button btnClear;
     Button btnBackSpace;
@@ -25,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnAdd;
     Button btnDecimal;
     Button btnEquals;
+    Button btnExponent;
+    //numericals
     Button btn0;
     Button btn1;
     Button btn2;
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn7;
     Button btn8;
     Button btn9;
+    //memory functions
     Button btnMadd;
     Button btnMsub;
     Button btnMr;
@@ -145,6 +148,20 @@ public class MainActivity extends AppCompatActivity {
                     String str = results.getText().toString();
                     leftOperand = Double.parseDouble(str);
 
+                }
+                catch(Exception e){
+                    results.setText("Enter a Number first");
+                }
+            }
+        });
+        btnExponent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    isOperatorPresent = true;
+                    operator = "^";
+                    String str = results.getText().toString();
+                    leftOperand = Double.parseDouble(str);
                 }
                 catch(Exception e){
                     results.setText("Enter a Number first");
@@ -441,6 +458,7 @@ public class MainActivity extends AppCompatActivity {
                 memory = 0.0;
             }
         });
+
         btnEquals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -475,6 +493,14 @@ public class MainActivity extends AppCompatActivity {
             }
             case "X": {
                 results.setText((leftOperand * rightOperand) + "");
+                break;
+            }
+            case "^": {
+                for(int i=0; i<rightOperand; i++)
+                {
+                    leftOperand *= leftOperand;
+                }
+                results.setText( leftOperand + "");
                 break;
             }
             case "/": {

@@ -281,10 +281,19 @@
                 android:textColor="@color/white"
                 android:background="@color/black"/>
             <Button
+                android:id="@+id/btnExponent"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="exp"
+                android:textSize="@dimen/buttonTextSize"
+                android:textColor="@color/white"
+                android:background="@color/black"/>
+            <Button
                 android:id="@+id/btnEqual"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="2"
+                android:layout_weight="1"
                 android:text="="
                 android:textSize="@dimen/buttonTextSize"
                 android:textColor="@color/white"
