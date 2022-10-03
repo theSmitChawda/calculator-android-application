@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnDecimal;
     Button btnEquals;
     Button btnExponent;
+    Button btnPi;
 
     //numericals
     Button btn0;
@@ -68,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 isOperatorPresent=false;
+                leftOperand=0;
+                rightOperand=0;
                 results.setText("");
             }
         });
@@ -105,7 +108,13 @@ public class MainActivity extends AppCompatActivity {
                     isOperatorPresent = true;
                     operator = "/";
                     String str = results.getText().toString();
-                    leftOperand = Double.parseDouble(str);
+                    if(str == "\u03C0")
+                    {
+                        leftOperand = Math.PI;
+                    }
+                    else {
+                        leftOperand = Double.parseDouble(str);
+                    }
                 }
                 catch(Exception e){
                     results.setText("Enter a Number first");
@@ -119,8 +128,13 @@ public class MainActivity extends AppCompatActivity {
                     isOperatorPresent = true;
                     operator = "X";
                     String str = results.getText().toString();
-                    leftOperand = Double.parseDouble(str);
-
+                    if(str == "\u03C0")
+                    {
+                        leftOperand = Math.PI;
+                    }
+                    else {
+                        leftOperand = Double.parseDouble(str);
+                    }
                 }
                 catch(Exception e){
                     results.setText("Enter a Number first");
@@ -134,8 +148,13 @@ public class MainActivity extends AppCompatActivity {
                     isOperatorPresent = true;
                     operator = "+";
                     String str = results.getText().toString();
-                    leftOperand = Double.parseDouble(str);
-
+                    if(str == "\u03C0")
+                    {
+                        leftOperand = Math.PI;
+                    }
+                    else {
+                        leftOperand = Double.parseDouble(str);
+                    }
                 }
                 catch(Exception e){
                     results.setText("Enter a Number first");
@@ -149,8 +168,13 @@ public class MainActivity extends AppCompatActivity {
                     isOperatorPresent = true;
                     operator = "-";
                     String str = results.getText().toString();
-                    leftOperand = Double.parseDouble(str);
-
+                    if(str == "\u03C0")
+                    {
+                        leftOperand = Math.PI;
+                    }
+                    else {
+                        leftOperand = Double.parseDouble(str);
+                    }
                 }
                 catch(Exception e){
                     results.setText("Enter a Number first");
@@ -164,8 +188,13 @@ public class MainActivity extends AppCompatActivity {
                     isOperatorPresent = true;
                     operator = "^";
                     String str = results.getText().toString();
-                    leftOperand = Double.parseDouble(str);
-                }
+                    if(str == "\u03C0")
+                    {
+                        leftOperand = Math.PI;
+                    }
+                    else {
+                        leftOperand = Double.parseDouble(str);
+                    }                }
                 catch(Exception e){
                     results.setText("Enter a Number first");
                 }
@@ -409,6 +438,30 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        btnPi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isOperatorPresent)
+                {
+                    results.setText("");
+                    rightOperand=(Math.PI);
+                }
+                else
+                {
+                    leftOperand=(Math.PI);
+                }
+                String str = results.getText().toString();
+
+                if(str.equals(""))
+                {
+                    results.setText("\u03C0");
+                }
+                else {
+                    str = str + "\u03C0";
+                    results.setText(str);
+                }
+            }
+        });
         btnDecimal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -544,6 +597,7 @@ public class MainActivity extends AppCompatActivity {
             btn7 = findViewById(R.id.btn7);
             btn8 = findViewById(R.id.btn8);
             btn9 = findViewById(R.id.btn9);
+            btnPi = findViewById(R.id.btnPi);
 
             btnMadd = findViewById(R.id.btnMadd);
             btnMsub = findViewById(R.id.btnMsub);

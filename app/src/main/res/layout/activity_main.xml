@@ -52,12 +52,22 @@
             android:layout_height="wrap_content"
             android:layout_weight="1">
             <Button
+                android:id="@+id/btnPi"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="\u03C0"
+                android:fontFamily="sans-serif-medium"
+                android:textSize="25dp"
+                android:textColor="@color/orange"
+                android:background="@color/black"/>
+            <Button
                 android:id="@+id/btnMadd"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="M+"
-                android:textSize="@dimen/buttonTextSize"
+                android:textSize="25dp"
                 android:textColor="@color/white"
                 android:background="@color/black"/>
             <Button
@@ -66,7 +76,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="M-"
-                android:textSize="@dimen/buttonTextSize"
+                android:textSize="25dp"
                 android:textColor="@color/white"
                 android:background="@color/black"/>
             <Button
@@ -75,7 +85,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="Mr"
-                android:textSize="@dimen/buttonTextSize"
+                android:textSize="25dp"
                 android:textColor="@color/white"
                 android:background="@color/black"/>
             <Button
@@ -84,7 +94,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="MC"
-                android:textSize="@dimen/buttonTextSize"
+                android:textSize="25dp"
                 android:textColor="@color/white"
                 android:background="@color/black"/>
         </LinearLayout>
