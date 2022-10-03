@@ -35,10 +35,16 @@ public class MainActivity extends AppCompatActivity {
     Button btn7;
     Button btn8;
     Button btn9;
+    Button btnMadd;
+    Button btnMsub;
+    Button btnMr;
+    Button btnMclear;
+    //Operations variable
     double leftOperand;
     double rightOperand;
     String operator;
     boolean isOperatorPresent=false;
+    double memory = 0.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -397,6 +403,44 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        btnMadd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try{
+                    Double currentValue = Double.parseDouble(results.getText().toString());
+                    memory += currentValue;
+                }
+                catch(Exception e)
+                {
+                    System.out.println("No decimal found");
+                }
+            }
+        });
+        btnMsub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try{
+                    Double currentValue = Double.parseDouble(results.getText().toString());
+                    memory -= currentValue;
+                }
+                catch(Exception e)
+                {
+                    System.out.println("No decimal found");
+                }
+            }
+        });
+        btnMr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                results.setText(memory + "");
+            }
+        });
+        btnMclear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                memory = 0.0;
+            }
+        });
         btnEquals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -470,5 +514,10 @@ public class MainActivity extends AppCompatActivity {
         btn7 = findViewById(R.id.btn7);
         btn8 = findViewById(R.id.btn8);
         btn9 = findViewById(R.id.btn9);
+
+        btnMadd = findViewById(R.id.btnMadd);
+        btnMsub = findViewById(R.id.btnMsub);
+        btnMr = findViewById(R.id.btnMr);
+        btnMclear = findViewById(R.id.btnMclear);
     }
 }

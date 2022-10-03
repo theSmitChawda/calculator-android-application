@@ -47,7 +47,47 @@
         android:layout_height="0dp"
         android:layout_weight="7"
         android:orientation="vertical">
-
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <Button
+                android:id="@+id/btnMadd"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="M+"
+                android:textSize="@dimen/buttonTextSize"
+                android:textColor="@color/white"
+                android:background="@color/black"/>
+            <Button
+                android:id="@+id/btnMsub"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="M-"
+                android:textSize="@dimen/buttonTextSize"
+                android:textColor="@color/white"
+                android:background="@color/black"/>
+            <Button
+                android:id="@+id/btnMr"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Mr"
+                android:textSize="@dimen/buttonTextSize"
+                android:textColor="@color/white"
+                android:background="@color/black"/>
+            <Button
+                android:id="@+id/btnMclear"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="MC"
+                android:textSize="@dimen/buttonTextSize"
+                android:textColor="@color/white"
+                android:background="@color/black"/>
+        </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -90,6 +130,7 @@
                 android:textColor="@color/orange"
                 android:background="@color/black"/>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
