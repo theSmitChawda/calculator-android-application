@@ -2,6 +2,7 @@
 <resources>
 <!--    result area dimensions-->
     <dimen name="resultSize">48dp</dimen>
+    <dimen name="resultPrevSize">24dp</dimen>
 
 
 <!--    function area dimensions-->

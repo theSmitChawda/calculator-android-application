@@ -16,6 +16,7 @@
         android:layout_height="0dp"
         android:layout_weight="3"
         android:orientation="vertical">
+
         <TextView
             android:id="@+id/blank"
             android:layout_width="match_parent"
@@ -27,12 +28,21 @@
             android:paddingRight="16dp"
             android:textSize="@dimen/resultSize"
             android:textColor="@color/design_default_color_on_primary"/>
-
+        <TextView
+            android:id="@+id/resultPreview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2 + 3"
+            android:gravity="end"
+            android:paddingBottom="8dp"
+            android:paddingRight="40dp"
+            android:textSize="@dimen/resultPrevSize"
+            android:textColor="@color/gray"/>
         <TextView
             android:id="@+id/results"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="5"
             android:gravity="end"
             android:paddingBottom="8dp"
             android:paddingRight="40dp"
