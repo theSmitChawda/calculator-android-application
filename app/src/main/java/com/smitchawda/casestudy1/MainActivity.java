@@ -221,8 +221,11 @@ public class MainActivity extends AppCompatActivity {
         btn0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String strPrev = resultsPreview.getText().toString();
                 if(isOperatorPresent)
                 {
+                    strPrev = strPrev + "0";
+                    results.setText(strPrev);
                     results.setText("");
                     rightOperand=0.0;
                 }
@@ -231,7 +234,6 @@ public class MainActivity extends AppCompatActivity {
                     leftOperand=0.0;
                 }
                 String str = results.getText().toString();
-                String strPrev = resultsPreview.getText().toString();
                 if(str.equals(""))
                 {
                     results.setText("0");
@@ -239,8 +241,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     str = str + "0";
-                    strPrev = strPrev + "0";
                     results.setText(str);
+                    strPrev = strPrev + "0";
                     results.setText(strPrev);
                 }
             }
@@ -265,7 +267,7 @@ public class MainActivity extends AppCompatActivity {
                 if(str.equals(""))
                 {
                     results.setText("1");
-
+                    resultsPreview.setText("1");
                 }
                 else {
                     str = str + "1";
@@ -281,9 +283,10 @@ public class MainActivity extends AppCompatActivity {
                 String strPrev = resultsPreview.getText().toString();
                 if(isOperatorPresent)
                 {
-                    results.setText("");
+
                     strPrev = strPrev + "2";
                     resultsPreview.setText(strPrev);
+                    results.setText("");
                     rightOperand=2.0;
                 }
                 else
@@ -294,6 +297,7 @@ public class MainActivity extends AppCompatActivity {
                 if(str.equals(""))
                 {
                     results.setText("2");
+                    resultsPreview.setText("2");
                 }
                 else {
                     str = str + "2";
@@ -306,8 +310,11 @@ public class MainActivity extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String strPrev = resultsPreview.getText().toString();
                 if(isOperatorPresent)
                 {
+                    strPrev = strPrev + "3";
+                    resultsPreview.setText(strPrev);
                     results.setText("");
                     rightOperand=3.0;
                 }
@@ -316,7 +323,7 @@ public class MainActivity extends AppCompatActivity {
                     leftOperand=3.0;
                 }
                 String str = results.getText().toString();
-                String strPrev = resultsPreview.getText().toString();
+
                 if(str.equals(""))
                 {
                     results.setText("3");
@@ -324,8 +331,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     str = str + "3";
-                    strPrev = strPrev + "3";
                     results.setText(str);
+                    strPrev = strPrev + "3";
                     resultsPreview.setText(strPrev);
                 }
             }
@@ -333,8 +340,11 @@ public class MainActivity extends AppCompatActivity {
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String strPrev = resultsPreview.getText().toString();
                 if(isOperatorPresent)
                 {
+                    strPrev = strPrev + "4";
+                    resultsPreview.setText(strPrev);
                     results.setText("");
                     rightOperand=4.0;
                 }
@@ -343,7 +353,7 @@ public class MainActivity extends AppCompatActivity {
                     leftOperand=4.0;
                 }
                 String str = results.getText().toString();
-                String strPrev = resultsPreview.getText().toString();
+
                 if(str.equals(""))
                 {
                     results.setText("4");
@@ -351,8 +361,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     str = str + "4";
-                    strPrev = strPrev + "4";
                     results.setText(str);
+                    strPrev = strPrev + "4";
                     resultsPreview.setText(strPrev);
                 }
             }
@@ -360,8 +370,11 @@ public class MainActivity extends AppCompatActivity {
         btn5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String strPrev = resultsPreview.getText().toString();
                 if(isOperatorPresent)
                 {
+                    strPrev = strPrev + "5";
+                    resultsPreview.setText(strPrev);
                     results.setText("");
                     rightOperand=5.0;
                 }
@@ -370,7 +383,7 @@ public class MainActivity extends AppCompatActivity {
                     leftOperand=5.0;
                 }
                 String str = results.getText().toString();
-                String strPrev = resultsPreview.getText().toString();
+
                 if(str.equals(""))
                 {
                     results.setText("5");
@@ -378,8 +391,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     str = str + "5";
-                    strPrev = strPrev + "5";
                     results.setText(str);
+                    strPrev = strPrev + "5";
                     resultsPreview.setText(strPrev);
                 }
             }
@@ -387,8 +400,11 @@ public class MainActivity extends AppCompatActivity {
         btn6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String strPrev = resultsPreview.getText().toString();
                 if(isOperatorPresent)
                 {
+                    strPrev = strPrev + "6";
+                    results.setText(strPrev);
                     results.setText("");
                     rightOperand=6.0;
                 }
@@ -397,7 +413,7 @@ public class MainActivity extends AppCompatActivity {
                     leftOperand=6.0;
                 }
                 String str = results.getText().toString();
-                String strPrev = resultsPreview.getText().toString();
+
                 if(str.equals(""))
                 {
                     results.setText("6");
@@ -405,8 +421,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     str = str + "6";
-                    strPrev = strPrev + "6";
                     results.setText(str);
+                    strPrev = strPrev + "6";
                     results.setText(strPrev);
                 }
             }
@@ -414,8 +430,11 @@ public class MainActivity extends AppCompatActivity {
         btn7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String strPrev = resultsPreview.getText().toString();
                 if(isOperatorPresent)
                 {
+                    strPrev = strPrev + "7";
+                    resultsPreview.setText(strPrev);
                     results.setText("");
                     rightOperand=7.0;
                 }
@@ -424,7 +443,7 @@ public class MainActivity extends AppCompatActivity {
                     leftOperand=7.0;
                 }
                 String str = results.getText().toString();
-                String strPrev = resultsPreview.getText().toString();
+
                 if(str.equals(""))
                 {
                     results.setText("7");
@@ -432,6 +451,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     str = str + "7";
+                    results.setText(str);
                     strPrev = strPrev + "7";
                     resultsPreview.setText(strPrev);
                 }
@@ -440,8 +460,11 @@ public class MainActivity extends AppCompatActivity {
         btn8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String strPrev = resultsPreview.getText().toString();
                 if(isOperatorPresent)
                 {
+                    strPrev = strPrev + "8";
+                    resultsPreview.setText(strPrev);
                     results.setText("");
                     rightOperand=8.0;
                 }
@@ -450,7 +473,7 @@ public class MainActivity extends AppCompatActivity {
                     leftOperand=8.0;
                 }
                 String str = results.getText().toString();
-                String strPrev = resultsPreview.getText().toString();
+
                 if(str.equals(""))
                 {
                     results.setText("8");
@@ -458,8 +481,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     str = str + "8";
-                    strPrev = strPrev + "8";
                     results.setText(str);
+                    strPrev = strPrev + "8";
                     resultsPreview.setText(strPrev);
                 }
             }
@@ -467,8 +490,11 @@ public class MainActivity extends AppCompatActivity {
         btn9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String strPrev = resultsPreview.getText().toString();
                 if(isOperatorPresent)
                 {
+                    strPrev = strPrev + "9";
+                    resultsPreview.setText(strPrev);
                     results.setText("");
                     rightOperand=9.0;
                 }
@@ -477,7 +503,7 @@ public class MainActivity extends AppCompatActivity {
                     leftOperand=9.0;
                 }
                 String str = results.getText().toString();
-                String strPrev = resultsPreview.getText().toString();
+
                 if(str.equals(""))
                 {
                     results.setText("9");
@@ -485,8 +511,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     str = str + "9";
-                    strPrev = strPrev + "9";
                     results.setText(str);
+                    strPrev = strPrev + "9";
                     resultsPreview.setText(strPrev);
                 }
             }
@@ -494,8 +520,11 @@ public class MainActivity extends AppCompatActivity {
         btnPi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String strPrev = resultsPreview.getText().toString();
                 if(isOperatorPresent)
                 {
+                    strPrev = strPrev + "\u03C0";
+                    resultsPreview.setText(strPrev);
                     results.setText("");
                     rightOperand=(Math.PI);
                 }
@@ -504,7 +533,7 @@ public class MainActivity extends AppCompatActivity {
                     leftOperand=(Math.PI);
                 }
                 String str = results.getText().toString();
-                String strPrev = resultsPreview.getText().toString();
+
                 if(str.equals(""))
                 {
                     results.setText("\u03C0");
@@ -512,8 +541,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     str = str + "\u03C0";
-                    strPrev = strPrev + "\u03C0";
                     results.setText(str);
+                    strPrev = strPrev + "\u03C0";
                     resultsPreview.setText(strPrev);
                 }
             }
