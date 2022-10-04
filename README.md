@@ -7,6 +7,10 @@
 ### College: Sheridan College
 ### Course: IoT with Android Applications
 
+
+----------------------------------------------------------------------------------------------
+
+
 NOTE: The following screenshots are from 
 Android studio's emulator
 
