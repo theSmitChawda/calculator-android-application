@@ -59,14 +59,23 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        try {
-            initializeDesignComponents();
-        }
-        catch (Exception e) {
-            System.out.println("Component Init Failed.");
-            e.printStackTrace();
-        }
-        //Adding listeners
+
+        /**
+         * Maps the XML Layout component with
+         * their respective classes for use in Java.
+         * Note: Exception handling for init fail
+         * is present in the function
+         */
+        initializeDesignComponents();
+
+
+        /**
+         * Business Logic of the application
+         * Note: To add new features/fix bugs
+         * create a new branch and then
+         * merge it. (Do not modify
+         * the master branch)
+         */
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -565,8 +574,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try{
-                    Double currentValue = Double.parseDouble(results.getText().toString());
-                    memory += currentValue;
+                    if(results.getText().toString().equals("\u03C0")) {
+                         memory+=Math.PI;
+                    }
+                    else
+                    {
+                        Double currentValue = Double.parseDouble(results.getText().toString());
+                        memory += currentValue;
+                    }
+
                 }
                 catch(Exception e)
                 {
@@ -599,8 +615,15 @@ public class MainActivity extends AppCompatActivity {
                     leftOperand=memory;
                 }
                 String strPrev = resultsPreview.getText().toString();
-                resultsPreview.setText(strPrev+" "+memory);
-                results.setText(memory + "");
+                if(memory==Math.PI)
+                {
+                    resultsPreview.setText(strPrev + " \u03C0");
+                    results.setText("\u03C0" + "");
+                }
+                else {
+                    resultsPreview.setText(strPrev + " " + memory);
+                    results.setText(memory + "");
+                }
             }
         });
         btnMclear.setOnClickListener(new View.OnClickListener() {
@@ -629,6 +652,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     * Application logic for the calculator
+     */
     public void calculateResults(){
         switch (operator)
         {
@@ -649,6 +676,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
             }
             case "/": {
+                /**
+                 * Division requires Exception handling
+                 */
                 try {
                     results.setText((leftOperand / rightOperand) + "");
                     break;
