@@ -18,4 +18,4 @@ Android studio's emulator
 <img width="192" alt="CalcUIDesign" src="https://user-images.githubusercontent.com/59838606/193873755-f6a49362-6d2d-4b0c-98d4-3e2d9565906a.png">
 
 #### Working application 
-<img width="192" alt="CalcUIDesign" src="https://user-images.githubusercontent.com/59838606/193873764-d56ff3ab-5c77-455e-9489-d86ed5bf2ad1.png">
+<img width="191" alt="CalcWorkingPic" src="https://user-images.githubusercontent.com/59838606/194064057-f3b9f25b-fcf2-4cab-a7bd-878dd0a129c3.png">
