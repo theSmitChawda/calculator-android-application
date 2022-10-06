@@ -11,7 +11,7 @@
 ----------------------------------------------------------------------------------------------
 
 
-NOTE: The following screenshots are from 
+> NOTE: The following screenshots are from 
 Android studio's emulator
 
 #### UI Design for the Android application
