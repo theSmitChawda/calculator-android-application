@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 /**
  * Name: Smit Chawda
  * Email: chawdas@sheridancollege.ca
@@ -65,9 +67,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
-
         /**
          * Maps the XML Layout component with
          * their respective classes for use in Java.
@@ -658,6 +658,22 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    /**
+     * Listens to the screen orientation and
+     * selects the activities accordingly
+     * @param newConfig
+     */
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if(newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE)
+        {
+            setContentView(R.layout.activity_main_landscape);
+            Toast.makeText(MainActivity.this, "Landscape", Toast.LENGTH_SHORT).show();
+
+        }
     }
 
     /**
