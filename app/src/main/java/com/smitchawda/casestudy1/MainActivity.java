@@ -76,6 +76,17 @@ public class MainActivity extends AppCompatActivity {
          */
         initializeDesignComponents();
 
+        //Busniess logic goes here
+        eventListeners();
+    }
+    /**
+     * Business Logic of the application
+     * Note: To add new features/fix bugs
+     * create a new branch and then
+     * merge it. (Do not modify
+     * the master branch)
+     */
+    private void eventListeners(){
         /**
          * Business Logic of the application
          * Note: To add new features/fix bugs
@@ -582,7 +593,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try{
                     if(results.getText().toString().equals("\u03C0")) {
-                         memory+=Math.PI;
+                        memory+=Math.PI;
                     }
                     else
                     {
@@ -672,18 +683,22 @@ public class MainActivity extends AppCompatActivity {
         {
             setContentView(R.layout.activity_main_landscape);
             Toast.makeText(MainActivity.this, "Landscape", Toast.LENGTH_SHORT).show();
+            initializeDesignComponents();
+            eventListeners();
         }
         else if(newConfig.orientation == Configuration.ORIENTATION_PORTRAIT)
         {
             setContentView(R.layout.activity_main);
             Toast.makeText(MainActivity.this, "Potrait", Toast.LENGTH_SHORT).show();
+            initializeDesignComponents();
+            eventListeners();
         }
     }
 
     /**
      * Application logic for the calculator
      */
-    public void calculateResults(){
+    private void calculateResults(){
         switch (operator)
         {
             case "+": {
