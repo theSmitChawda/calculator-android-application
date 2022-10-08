@@ -1,11 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!--    result area dimensions-->
+<!--    result area dimensions - potrait-->
     <dimen name="resultSize">48dp</dimen>
     <dimen name="resultPrevSize">24dp</dimen>
 
+    <!--    result area dimensions - landscape-->
+    <dimen name="l_resultSize">36dp</dimen>
+    <dimen name="l_resultPrevSize">24dp</dimen>
 
 <!--    function area dimensions-->
     <dimen name="buttonTextSize">30dp</dimen>
+
+
+<!--    potrait mode weight scaling-->
+    <dimen name="resultsArea_width">3</dimen>
+    <dimen name="functionArea_width">7</dimen>
+
+    <!--    landscape mode weight scaling-->
+    <dimen name="l_resultsArea_width">2</dimen>
+    <dimen name="l_functionArea_width">8</dimen>
 
 </resources>

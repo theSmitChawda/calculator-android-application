@@ -4,16 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 /**
  * Name: Smit Chawda
  * Email: chawdas@sheridancollege.ca
  */
 public class MainActivity extends AppCompatActivity {
+    //Layouts
+    LinearLayout resultsArea;
+    LinearLayout functionsArea;
+
 //    XML configuration
     TextView results;
     TextView resultsPreview;
@@ -54,10 +60,12 @@ public class MainActivity extends AppCompatActivity {
     boolean isOperatorPresent=false;
     double memory = 0.0;
     String previewString;
+    int orientation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         /**
@@ -67,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
          * is present in the function
          */
         initializeDesignComponents();
-
 
         /**
          * Business Logic of the application
@@ -693,6 +700,9 @@ public class MainActivity extends AppCompatActivity {
     private void initializeDesignComponents(){
         //Component Initialization
         try {
+            resultsArea = findViewById(R.id.resultArea);
+            functionsArea = findViewById(R.id.functionArea);
+
             results = findViewById(R.id.results);
             resultsPreview = findViewById(R.id.resultPreview);
             btnClear = findViewById(R.id.btnClear);
