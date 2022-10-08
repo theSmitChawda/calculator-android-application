@@ -672,7 +672,11 @@ public class MainActivity extends AppCompatActivity {
         {
             setContentView(R.layout.activity_main_landscape);
             Toast.makeText(MainActivity.this, "Landscape", Toast.LENGTH_SHORT).show();
-
+        }
+        else if(newConfig.orientation == Configuration.ORIENTATION_PORTRAIT)
+        {
+            setContentView(R.layout.activity_main);
+            Toast.makeText(MainActivity.this, "Potrait", Toast.LENGTH_SHORT).show();
         }
     }
 

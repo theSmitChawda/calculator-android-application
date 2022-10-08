@@ -5,11 +5,13 @@
     <dimen name="resultPrevSize">24dp</dimen>
 
     <!--    result area dimensions - landscape-->
-    <dimen name="l_resultSize">36dp</dimen>
-    <dimen name="l_resultPrevSize">24dp</dimen>
+    <dimen name="l_resultSize">30dp</dimen>
+    <dimen name="l_resultPrevSize">15dp</dimen>
 
-<!--    function area dimensions-->
+<!--    function area dimensions - potrait-->
     <dimen name="buttonTextSize">30dp</dimen>
+<!--    function area dimensions - potrait-->
+    <dimen name="l_buttonTextSize">23dp</dimen>
 
 
 <!--    potrait mode weight scaling-->
