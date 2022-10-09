@@ -87,13 +87,6 @@ public class MainActivity extends AppCompatActivity {
      * the master branch)
      */
     private void eventListeners(){
-        /**
-         * Business Logic of the application
-         * Note: To add new features/fix bugs
-         * create a new branch and then
-         * merge it. (Do not modify
-         * the master branch)
-         */
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
