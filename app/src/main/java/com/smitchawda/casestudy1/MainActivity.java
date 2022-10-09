@@ -67,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        onConfigurationChanged(getResources().getConfiguration());
+
         /**
          * Maps the XML Layout component with
          * their respective classes for use in Java.
