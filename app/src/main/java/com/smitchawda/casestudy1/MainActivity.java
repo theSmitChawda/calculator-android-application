@@ -16,6 +16,10 @@ import android.widget.Toast;
 /**
  * Name: Smit Chawda
  * Email: chawdas@sheridancollege.ca
+ * NOTE: This code is in the "bug_Calc" branch -> temporarily
+ * the button functionalities have been deactivated for testing purposes
+ * for functional version (version with backend code) refer to the "master"
+ * branch.
  */
 public class MainActivity extends AppCompatActivity {
     //Layouts
@@ -249,11 +253,11 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     results.setText("");
-                    rightOperand=0.0;
+                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
                 }
                 else
                 {
-                    leftOperand=0.0;
+                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
                 }
                 String str = results.getText().toString();
                 if(str.equals(""))
@@ -278,11 +282,11 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     results.setText("");
-                    rightOperand=1.0;
+                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
                 }
                 else
                 {
-                    leftOperand=1.0;
+                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
                 }
                 String str = results.getText().toString();
 
@@ -307,11 +311,12 @@ public class MainActivity extends AppCompatActivity {
                 if(isOperatorPresent)
                 {
                     results.setText("");
-                    rightOperand=2.0;
+//                    rightOperand=2.0;
+                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
                 }
                 else
                 {
-                    leftOperand=2.0;
+                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
                 }
                 String str = results.getText().toString();
                 if(str.equals(""))
@@ -335,11 +340,11 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     results.setText("");
-                    rightOperand=3.0;
+                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
                 }
                 else
                 {
-                    leftOperand=3.0;
+                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
                 }
                 String str = results.getText().toString();
 
@@ -364,11 +369,11 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     results.setText("");
-                    rightOperand=4.0;
+                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
                 }
                 else
                 {
-                    leftOperand=4.0;
+                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
                 }
                 String str = results.getText().toString();
 
@@ -394,11 +399,11 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     results.setText("");
-                    rightOperand=5.0;
+                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
                 }
                 else
                 {
-                    leftOperand=5.0;
+                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
                 }
                 String str = results.getText().toString();
 
@@ -424,11 +429,11 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     results.setText("");
-                    rightOperand=6.0;
+                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
                 }
                 else
                 {
-                    leftOperand=6.0;
+                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
                 }
                 String str = results.getText().toString();
 
@@ -454,11 +459,11 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     results.setText("");
-                    rightOperand=7.0;
+                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
                 }
                 else
                 {
-                    leftOperand=7.0;
+                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
                 }
                 String str = results.getText().toString();
 
@@ -484,11 +489,11 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     results.setText("");
-                    rightOperand=8.0;
+                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
                 }
                 else
                 {
-                    leftOperand=8.0;
+                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
                 }
                 String str = results.getText().toString();
 
@@ -514,11 +519,11 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     results.setText("");
-                    rightOperand=9.0;
+                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
                 }
                 else
                 {
-                    leftOperand=9.0;
+                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
                 }
                 String str = results.getText().toString();
 
