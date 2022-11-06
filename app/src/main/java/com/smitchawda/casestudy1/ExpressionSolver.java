@@ -116,8 +116,12 @@ public class ExpressionSolver {
 		}
 		double answer=0.0;
 		int startingPosition = positionPointer;
-		if((ch>='0' && ch<='9') || ch=='.' || ch=='%')
+		if((ch>='0' && ch<='9') || ch=='.' || ch=='%' || ch=='\u03C0')
 		{
+			if (ch=='\u03C0')
+			{
+				answer = Math.PI;
+			}
 			/*numbers detected*/
 			while((ch>='0' && ch<='9') || ch=='.')
 			{

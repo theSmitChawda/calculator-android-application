@@ -16,8 +16,8 @@ import android.widget.Toast;
 /**
  * Name: Smit Chawda
  * Email: chawdas@sheridancollege.ca
- * NOTE: This code is in the "bug_Calc" branch -> temporarily
- * the button functionalities have been deactivated for testing purposes
+ * NOTE: This code is in the "bug_Calc" branch -> temporarily the
+ * button functionalities have been deactivated for testing purposes
  * for functional version (version with backend code) refer to the "master"
  * branch.
  */
@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout resultsArea;
     LinearLayout functionsArea;
 
-//    XML configuration
+    //XML configuration
     TextView results;
     TextView resultsPreview;
     Button btnClear;
@@ -120,9 +120,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    /**
-                     * TODO: checking for PI pending
-                     */
                     double currentValue=0.0;
                     if(results.getText().toString().equals('\u03C0'))
                     {
