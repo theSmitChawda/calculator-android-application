@@ -14,8 +14,15 @@
 > NOTE: The following screenshots are from 
 Android studio's emulator
 
-#### UI Design for the Android application
-<img width="192" alt="CalcUIDesign" src="https://user-images.githubusercontent.com/59838606/193873755-f6a49362-6d2d-4b0c-98d4-3e2d9565906a.png">
+#### Normal arithmetic operations
 
-#### Working application 
-<img width="191" alt="CalcWorkingPic" src="https://user-images.githubusercontent.com/59838606/194064057-f3b9f25b-fcf2-4cab-a7bd-878dd0a129c3.png">
+https://user-images.githubusercontent.com/59838606/200184215-e02c95b7-ed81-4e6d-944f-5e4f1a92a8bf.mp4
+
+#### Pi and Exponential functions
+
+https://user-images.githubusercontent.com/59838606/200184244-a9981e5b-0541-4857-8f94-48fec398742d.mp4
+
+#### Memory functions
+
+https://user-images.githubusercontent.com/59838606/200184256-b0b7b53f-e7ec-4be0-8d23-5d4edb6ebdaa.mp4
+
