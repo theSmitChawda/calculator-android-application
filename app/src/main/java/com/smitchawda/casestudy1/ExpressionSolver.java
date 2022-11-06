@@ -1,21 +1,21 @@
 package com.smitchawda.casestudy1;
 /**
- * The Expression Solver class has been created 
- * to be integrate in the Project-2 of the 
- * ENGI35749 Internet of Things Applications 
- * Course of Sheridan College - Fall 2022. 
- * 
+ * The Expression Solver class has been created
+ * to be integrate in the Project-2 of the
+ * ENGI35749 Internet of Things Applications
+ * Course of Sheridan College - Fall 2022.
+ *
  * HOW TO USE:
  * In order to use this class effectively,
- * 
+ *
  * 1. Create an object of the class and pass the
- * 	  solvable equation as a parameter for the 
+ * 	  solvable equation as a parameter for the
  *    constructor
- *    
+ *
  * 2. Call the evaluate() method to get the answer.
- *    Please note that by calling this method, you 
- *    are expecting a Double value. 
- * 
+ *    Please note that by calling this method, you
+ *    are expecting a Double value.
+ *
  * @author Smit Chawda
  * @version 0.0.7
  */
@@ -37,14 +37,14 @@ public class ExpressionSolver {
 		setEqn(eqn);
 	}
 
-	
+
 /*Logic methods*/
  /*Common logic and side methods*/
-	
+
 	/**
 	 * Moves the positionPointer to the next
 	 * character in our eqn string
-	 * 
+	 *
 	 * NOTE: The spaces are ignored in this class
 	 */
 	private void nextChar() {
@@ -56,7 +56,7 @@ public class ExpressionSolver {
 			}
 			else
 			{
-				this.ch = this.eqn.charAt(positionPointer);	
+				this.ch = this.eqn.charAt(positionPointer);
 			}
 		}
 		else
@@ -64,18 +64,18 @@ public class ExpressionSolver {
 			this.ch = (char)-1;
 		}
 	}
-	
+
 	/**
-	 * Initializes the positionPointer variable 
+	 * Initializes the positionPointer variable
 	 * each time a equation is provided to this
 	 * class (in form of a String)
 	 */
 	private void _initPositionPointer() {
 		this.positionPointer = -1;
 	}
-	
+
 	/**
-	 * Checks if the passed argument character is 
+	 * Checks if the passed argument character is
 	 * synchronized with the current pointing character
 	 * @param charToCheck
 	 * @return
@@ -87,9 +87,9 @@ public class ExpressionSolver {
 		}
 		return false;
 	}
-	
+
  /*Equation Parsing functions*/
-	
+
 	private double percentOperations(double val, double answer){
 		System.out.println("% detected");
 		answer = answer/100.0;
@@ -97,11 +97,11 @@ public class ExpressionSolver {
 		return answer;
 	}
 	/**
-	 * This method collects the 
+	 * This method collects the
 	 * operands to be processed.
-	 * 
+	 *
 	 * Addition and Subtraction has been
-	 * handled by the unary operator at 
+	 * handled by the unary operator at
 	 * the beginning of the method
 	 * @return Double
 	 */
@@ -116,12 +116,8 @@ public class ExpressionSolver {
 		}
 		double answer=0.0;
 		int startingPosition = positionPointer;
-		if((ch>='0' && ch<='9') || ch=='.' || ch=='%' || ch=='\u03C0')
+		if((ch>='0' && ch<='9') || ch=='.' || ch=='%')
 		{
-			if (ch=='\u03C0')
-			{
-				answer = Math.PI;
-			}
 			/*numbers detected*/
 			while((ch>='0' && ch<='9') || ch=='.')
 			{
@@ -133,8 +129,11 @@ public class ExpressionSolver {
 				answer=percentOperations(val,answer);
 			}
 		}
-		else if(ch=='\u03C0')
+		else if(ch=='#')
 		{
+			/*TODO: replace # with '\u03C0' in the if condition above
+			 * after testing is completed*/
+			System.out.println("Pi detected");
 			answer = Math.PI;
 		}
 		else if(ch=='e')
@@ -144,7 +143,7 @@ public class ExpressionSolver {
 			{
 				nextChar();
 			}
-			/*Find for the last ')' bracket and pass the 
+			/*Find for the last ')' bracket and pass the
 			 *String as in the new ExpressionSolver object*/
 			String str="";
 			while(!checkOpr(')')) {
@@ -164,7 +163,7 @@ public class ExpressionSolver {
 	 * This method collects the operands
 	 * and performs multiplication/division
 	 * as mentioned in the equation.
-	 * 
+	 *
 	 * NOTE: addition and subtraction
 	 * has been handled in the parseSingleFactor() method.
 	 * @return Double
@@ -195,9 +194,9 @@ public class ExpressionSolver {
 			}
 		}
 	}
-	
+
 	/**
-	 * Performs addition/subtraction on the 
+	 * Performs addition/subtraction on the
 	 * terms formed by the two methods below
 	 * @return Double
 	 */
@@ -227,11 +226,11 @@ public class ExpressionSolver {
 			}
 		}
 	}
-	
+
 	/**
 	 * The main method of this class call this to start solving
 	 * the given equation
-	 * 
+	 *
 	 * The logic will flow sequentially downwards
 	 * @return a Double variable
 	 */
@@ -246,9 +245,9 @@ public class ExpressionSolver {
 //		}
 		return answer;
 	}
-	
+
 /*Non-logic methods*/
-	
+
 	/**
 	 * This method is used to set the equations
 	 * @param eqn
