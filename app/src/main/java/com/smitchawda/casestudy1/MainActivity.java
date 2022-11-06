@@ -65,14 +65,11 @@ public class MainActivity extends AppCompatActivity {
     String operator;
     boolean isOperatorPresent=false;
     double memory = 0.0;
-    String previewString;
-    int orientation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         onConfigurationChanged(getResources().getConfiguration());
-
         /**
          * Maps the XML Layout component with
          * their respective classes for use in Java.
@@ -96,8 +93,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 isOperatorPresent=false;
-                leftOperand=0;
-                rightOperand=0;
+//                leftOperand=0;
+//                rightOperand=0;
                 results.setText("");
                 resultsPreview.setText("");
             }
@@ -123,10 +120,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
+                    /**
+                     * TODO: checking for PI pending
+                     */
                     double currentValue = Double.parseDouble(results.getText().toString());
                     resultsPreview.setText(currentValue + "%");
-                    currentValue /= 100.00;
-                    results.setText(currentValue + "");
                 }
                 catch(Exception e){
                     results.setText("Not a double");
@@ -138,17 +136,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     isOperatorPresent = true;
-                    operator = "/";
                     String str = results.getText().toString();
                     String strPrev = resultsPreview.getText().toString();
                     resultsPreview.setText(strPrev + " / ");
-                    if(str == "\u03C0")
-                    {
-                        leftOperand = Math.PI;
-                    }
-                    else {
-                        leftOperand = Double.parseDouble(str);
-                    }
                 }
                 catch(Exception e){
                     results.setText("Enter a Number first");
@@ -160,17 +150,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     isOperatorPresent = true;
-                    operator = "X";
                     String str = results.getText().toString();
                     String strPrev = resultsPreview.getText().toString();
                     resultsPreview.setText(strPrev + " X ");
-                    if(str == "\u03C0")
-                    {
-                        leftOperand = Math.PI;
-                    }
-                    else {
-                        leftOperand = Double.parseDouble(str);
-                    }
                 }
                 catch(Exception e){
                     results.setText("Enter a Number first");
@@ -182,17 +164,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     isOperatorPresent = true;
-                    operator = "+";
                     String str = results.getText().toString();
                     String strPrev = resultsPreview.getText().toString();
                     resultsPreview.setText(strPrev + " + ");
-                    if(str == "\u03C0")
-                    {
-                        leftOperand = Math.PI;
-                    }
-                    else {
-                        leftOperand = Double.parseDouble(str);
-                    }
                 }
                 catch(Exception e){
                     results.setText("Enter a Number first");
@@ -204,17 +178,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     isOperatorPresent = true;
-                    operator = "-";
                     String str = results.getText().toString();
                     String strPrev = resultsPreview.getText().toString();
                     resultsPreview.setText(strPrev + " - ");
-                    if(str == "\u03C0")
-                    {
-                        leftOperand = Math.PI;
-                    }
-                    else {
-                        leftOperand = Double.parseDouble(str);
-                    }
                 }
                 catch(Exception e){
                     results.setText("Enter a Number first");
@@ -226,18 +192,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     isOperatorPresent = true;
-                    operator = "^";
                     String str = results.getText().toString();
                     String strPrev = resultsPreview.getText().toString();
-//                    resultsPreview.setText(strPrev + " ^ ");
                     resultsPreview.setText("e^("+strPrev+")");
-                    if(str == "\u03C0")
-                    {
-                        leftOperand = Math.PI;
-                    }
-                    else {
-                        leftOperand = Double.parseDouble(str);
-                    }                }
+                }
                 catch(Exception e){
                     results.setText("Enter a Number first");
                 }
@@ -251,14 +209,9 @@ public class MainActivity extends AppCompatActivity {
                 resultsPreview.setText(strPrev);
                 if(isOperatorPresent)
                 {
-
                     results.setText("");
-                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
                 }
-                else
-                {
-                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
-                }
+
                 String str = results.getText().toString();
                 if(str.equals(""))
                 {
@@ -268,7 +221,6 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     str = str + "0";
                     results.setText(str);
-
                 }
             }
         });
@@ -280,25 +232,18 @@ public class MainActivity extends AppCompatActivity {
                 resultsPreview.setText(strPrev);
                 if(isOperatorPresent)
                 {
-
                     results.setText("");
-                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
                 }
-                else
-                {
-                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
-                }
+
                 String str = results.getText().toString();
 
                 if(str.equals(""))
                 {
                     results.setText("1");
-
                 }
                 else {
                     str = str + "1";
                     results.setText(str);
-
                 }
             }
         });
@@ -311,13 +256,8 @@ public class MainActivity extends AppCompatActivity {
                 if(isOperatorPresent)
                 {
                     results.setText("");
-//                    rightOperand=2.0;
-                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
                 }
-                else
-                {
-                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
-                }
+
                 String str = results.getText().toString();
                 if(str.equals(""))
                 {
@@ -340,11 +280,6 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     results.setText("");
-                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
-                }
-                else
-                {
-                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
                 }
                 String str = results.getText().toString();
 
@@ -369,11 +304,6 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     results.setText("");
-                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
-                }
-                else
-                {
-                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
                 }
                 String str = results.getText().toString();
 
@@ -399,12 +329,8 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     results.setText("");
-                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
                 }
-                else
-                {
-                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
-                }
+
                 String str = results.getText().toString();
 
                 if(str.equals(""))
@@ -429,12 +355,8 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     results.setText("");
-                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
                 }
-                else
-                {
-                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
-                }
+
                 String str = results.getText().toString();
 
                 if(str.equals(""))
@@ -459,11 +381,6 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     results.setText("");
-                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
-                }
-                else
-                {
-                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
                 }
                 String str = results.getText().toString();
 
@@ -489,11 +406,7 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     results.setText("");
-                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
-                }
-                else
-                {
-                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
+
                 }
                 String str = results.getText().toString();
 
@@ -519,12 +432,8 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     results.setText("");
-                    rightOperand = Double.parseDouble(strPrev.substring(strPrev.indexOf(operator)));
                 }
-                else
-                {
-                    leftOperand=Double.parseDouble(strPrev.substring(0,strPrev.indexOf(operator)));
-                }
+
                 String str = results.getText().toString();
 
                 if(str.equals(""))
@@ -549,12 +458,8 @@ public class MainActivity extends AppCompatActivity {
                 {
 
                     results.setText("");
-                    rightOperand=(Math.PI);
                 }
-                else
-                {
-                    leftOperand=(Math.PI);
-                }
+
                 String str = results.getText().toString();
 
                 if(str.equals(""))
@@ -579,7 +484,6 @@ public class MainActivity extends AppCompatActivity {
                 if(str.equals(""))
                 {
                     results.setText("0.");
-
                 }
                 else {
                     str = str + ".";
@@ -599,7 +503,6 @@ public class MainActivity extends AppCompatActivity {
                         Double currentValue = Double.parseDouble(results.getText().toString());
                         memory += currentValue;
                     }
-
                 }
                 catch(Exception e)
                 {
@@ -623,14 +526,6 @@ public class MainActivity extends AppCompatActivity {
         btnMr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(isOperatorPresent)
-                {
-                    rightOperand=memory;
-                }
-                else
-                {
-                    leftOperand=memory;
-                }
                 String strPrev = resultsPreview.getText().toString();
                 if(memory==Math.PI)
                 {
@@ -652,20 +547,22 @@ public class MainActivity extends AppCompatActivity {
         btnEquals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    if(results.getText().toString().equals(""))
-                    {
-                        results.setText("0");
-                    }
-                    else {
-                        calculateResults();
-                    }
-                }
-                catch (Exception e)
-                {
-                    System.out.println("Error");
-                    results.setText("Error");
-                }
+//                try {
+//                    if(results.getText().toString().equals(""))
+//                    {
+//                        results.setText("0");
+//                    }
+//                    else {
+//                        calculateResults();
+//                    }
+//                }
+//                catch (Exception e)
+//                {
+//                    System.out.println("Error");
+//                    results.setText("Error");
+//                }
+                ExpressionSolver solver = new ExpressionSolver(resultsPreview.getText().toString());
+                results.setText(solver.evaluate()+"");
             }
         });
     }
