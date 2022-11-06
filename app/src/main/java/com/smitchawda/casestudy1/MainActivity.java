@@ -123,7 +123,16 @@ public class MainActivity extends AppCompatActivity {
                     /**
                      * TODO: checking for PI pending
                      */
-                    double currentValue = Double.parseDouble(results.getText().toString());
+                    double currentValue=0.0;
+                    if(results.getText().toString().equals('\u03C0'))
+                    {
+                         currentValue = Math.PI;
+                    }
+                    else
+                    {
+                         currentValue = Double.parseDouble(results.getText().toString());
+                    }
+
                     resultsPreview.setText(currentValue + "%");
                 }
                 catch(Exception e){
@@ -152,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
                     isOperatorPresent = true;
                     String str = results.getText().toString();
                     String strPrev = resultsPreview.getText().toString();
-                    resultsPreview.setText(strPrev + " X ");
+                    resultsPreview.setText(strPrev + " * ");
                 }
                 catch(Exception e){
                     results.setText("Enter a Number first");
