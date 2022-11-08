@@ -12,7 +12,7 @@
 
 
 > NOTE: The following screenshots are from 
-Android studio's emulator
+Bluestack's android emulator instance
 
 #### Normal arithmetic operations
 
