@@ -120,17 +120,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
-                    double currentValue=0.0;
-                    if(results.getText().toString().equals('\u03C0'))
-                    {
-                         currentValue = Math.PI;
-                    }
-                    else
-                    {
-                         currentValue = Double.parseDouble(results.getText().toString());
-                    }
+                    String strPrev = resultsPreview.getText().toString();
 
-                    resultsPreview.setText(currentValue + "%");
+                    resultsPreview.setText(strPrev + "%");
                 }
                 catch(Exception e){
                     results.setText("Not a double");
