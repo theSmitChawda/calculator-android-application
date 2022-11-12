@@ -30,7 +30,6 @@ public class ExpressionSolver {
 /*Constructors*/
 	/**
 	 * Constructor for the class
-	 * @param eqn
 	 */
 	public ExpressionSolver(String eqn) {
 		super();
@@ -77,8 +76,6 @@ public class ExpressionSolver {
 	/**
 	 * Checks if the passed argument character is
 	 * synchronized with the current pointing character
-	 * @param charToCheck
-	 * @return
 	 */
 	private boolean checkOpr(char charToCheck){
 		if(this.ch == charToCheck) {
@@ -127,14 +124,8 @@ public class ExpressionSolver {
 			if(ch=='%')
 			{
 				answer=percentOperations(val,answer);
+				nextChar();
 			}
-		}
-		else if(ch=='#')
-		{
-			/*TODO: replace # with '\u03C0' in the if condition above
-			 * after testing is completed*/
-			System.out.println("Pi detected");
-			answer = Math.PI;
 		}
 		else if(ch=='e')
 		{
@@ -206,14 +197,6 @@ public class ExpressionSolver {
 		{
 			if(checkOpr('+'))
 			{
-//				if(this.isPercentOprPresent)
-//				{
-//					answer = answer+(answer*parseSingleFactor());
-//				}
-//				else
-//				{
-//					answer = answer+parseSingleFactor();
-//				}
 				answer = answer+parseSingleFactor(answer);
 			}
 			else if(checkOpr('-'))
@@ -238,11 +221,6 @@ public class ExpressionSolver {
 		/*Jump pointer to the next char*/
 		nextChar();
 		double answer = parseCombinedTerm();
-//		if (this.positionPointer < this.eqn.length()) {
-//			System.out.println("Pointer Pos.: "+this.positionPointer);
-//			System.out.println("Eqn length: "+this.eqn.length());
-//			throw new RuntimeException("Unexpected: '" + (char)this.ch+"' character.");
-//		}
 		return answer;
 	}
 

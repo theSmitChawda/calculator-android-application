@@ -207,14 +207,19 @@ public class MainActivity extends AppCompatActivity {
                 resultsPreview.setText(strPrev);
                 if(isOperatorPresent)
                 {
-                    results.setText("");
+//                    try {
+//                        Double.parseDouble(results.getText().toString());
+//                        results.setText(results.getText().toString()+"0");
+//                    }
+//                    catch(Exception e) {
+//                        results.setText("0");
+//                    }
                 }
 
                 String str = results.getText().toString();
                 if(str.equals(""))
                 {
                     results.setText("0");
-
                 }
                 else {
                     str = str + "0";
@@ -325,7 +330,6 @@ public class MainActivity extends AppCompatActivity {
                 resultsPreview.setText(strPrev);
                 if(isOperatorPresent)
                 {
-
                     results.setText("");
                 }
 
@@ -545,22 +549,14 @@ public class MainActivity extends AppCompatActivity {
         btnEquals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                try {
-//                    if(results.getText().toString().equals(""))
-//                    {
-//                        results.setText("0");
-//                    }
-//                    else {
-//                        calculateResults();
-//                    }
-//                }
-//                catch (Exception e)
-//                {
-//                    System.out.println("Error");
-//                    results.setText("Error");
-//                }
-                ExpressionSolver solver = new ExpressionSolver(resultsPreview.getText().toString());
-                results.setText(solver.evaluate()+"");
+                if(results.getText().toString().equals(""))
+                {
+                    results.setText("");
+                }
+                else {
+                    ExpressionSolver solver = new ExpressionSolver(resultsPreview.getText().toString());
+                    results.setText(solver.evaluate()+"");
+                }
             }
         });
     }
@@ -589,43 +585,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Application logic for the calculator
-     */
-    private void calculateResults(){
-        switch (operator)
-        {
-            case "+": {
-                results.setText((leftOperand + rightOperand) + "");
-                break;
-            }
-            case "-": {
-                results.setText((leftOperand - rightOperand) + "");
-                break;
-            }
-            case "X": {
-                results.setText((leftOperand * rightOperand) + "");
-                break;
-            }
-            case "^": {
-                results.setText( Math.exp(leftOperand) + "");
-                break;
-            }
-            case "/": {
-                /**
-                 * Division requires Exception handling
-                 */
-                try {
-                    results.setText((leftOperand / rightOperand) + "");
-                    break;
-                }
-                catch (ArithmeticException e)
-                {
-                    results.setText("ERR: Div by 0");
-                }
-            }
-        }
-    }
     private void initializeDesignComponents(){
         //Component Initialization
         try {
