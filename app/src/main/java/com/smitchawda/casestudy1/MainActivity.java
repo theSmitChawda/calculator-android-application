@@ -1,11 +1,7 @@
 package com.smitchawda.casestudy1;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.annotation.SuppressLint;
-import android.content.res.ColorStateList;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -60,9 +56,6 @@ public class MainActivity extends AppCompatActivity {
     Button btnMclear;
 
     //Operations variable
-    double leftOperand;
-    double rightOperand;
-    String operator;
     boolean isOperatorPresent=false;
     double memory = 0.0;
 
@@ -70,12 +63,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         onConfigurationChanged(getResources().getConfiguration());
-        /**
-         * Maps the XML Layout component with
-         * their respective classes for use in Java.
-         * Note: Exception handling for init fail
-         * is present in the function
-         */
         initializeDesignComponents();
 
         //Busniess logic goes here
@@ -89,402 +76,301 @@ public class MainActivity extends AppCompatActivity {
      * the master branch)
      */
     private void eventListeners(){
-        btnClear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                isOperatorPresent=false;
+        btnClear.setOnClickListener(view -> {
+            isOperatorPresent=false;
 //                leftOperand=0;
 //                rightOperand=0;
+            results.setText("");
+            resultsPreview.setText("");
+        });
+        btnBackSpace.setOnClickListener(view -> {
+            try {
+                Double.parseDouble(results.getText().toString());
+                String currentStr = results.getText().toString();
+                String modStr = currentStr.substring(1);
+                results.setText(modStr);
+                String prev = resultsPreview.getText().toString().substring(1);
+                resultsPreview.setText(prev);
+            }
+            catch(Exception e){
                 results.setText("");
                 resultsPreview.setText("");
             }
         });
-        btnBackSpace.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    Double.parseDouble(results.getText().toString());
-                    String currentStr = results.getText().toString();
-                    String modStr = currentStr.substring(1);
-                    results.setText(modStr);
-                    String prev = resultsPreview.getText().toString().substring(1);
-                    resultsPreview.setText(prev);
-                }
-                catch(Exception e){
-                    results.setText("");
-                    resultsPreview.setText("");
-                }
-            }
-        });
-        btnPercentage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    String strPrev = resultsPreview.getText().toString();
-
-                    resultsPreview.setText(strPrev + "%");
-                }
-                catch(Exception e){
-                    results.setText("Not a double");
-                }
-            }
-        });
-        btnDivide.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    isOperatorPresent = true;
-                    String str = results.getText().toString();
-                    String strPrev = resultsPreview.getText().toString();
-                    resultsPreview.setText(strPrev + " / ");
-                }
-                catch(Exception e){
-                    results.setText("Enter a Number first");
-                }
-            }
-        });
-        btnMultiply.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    isOperatorPresent = true;
-                    String str = results.getText().toString();
-                    String strPrev = resultsPreview.getText().toString();
-                    resultsPreview.setText(strPrev + " * ");
-                }
-                catch(Exception e){
-                    results.setText("Enter a Number first");
-                }
-            }
-        });
-        btnAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    isOperatorPresent = true;
-                    String str = results.getText().toString();
-                    String strPrev = resultsPreview.getText().toString();
-                    resultsPreview.setText(strPrev + " + ");
-                }
-                catch(Exception e){
-                    results.setText("Enter a Number first");
-                }
-            }
-        });
-        btnSubstract.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    isOperatorPresent = true;
-                    String str = results.getText().toString();
-                    String strPrev = resultsPreview.getText().toString();
-                    resultsPreview.setText(strPrev + " - ");
-                }
-                catch(Exception e){
-                    results.setText("Enter a Number first");
-                }
-            }
-        });
-        btnExponent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    isOperatorPresent = true;
-                    String str = results.getText().toString();
-                    String strPrev = resultsPreview.getText().toString();
-                    resultsPreview.setText("e^("+strPrev+")");
-                }
-                catch(Exception e){
-                    results.setText("Enter a Number first");
-                }
-            }
-        });
-        btn0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btnPercentage.setOnClickListener(view -> {
+            try {
                 String strPrev = resultsPreview.getText().toString();
-                strPrev = strPrev + "0";
-                resultsPreview.setText(strPrev);
-                if(isOperatorPresent)
-                {
-//                    try {
-//                        Double.parseDouble(results.getText().toString());
-//                        results.setText(results.getText().toString()+"0");
-//                    }
-//                    catch(Exception e) {
-//                        results.setText("0");
-//                    }
-                }
 
-                String str = results.getText().toString();
-                if(str.equals(""))
-                {
-                    results.setText("0");
-                }
-                else {
-                    str = str + "0";
-                    results.setText(str);
-                }
+                resultsPreview.setText(strPrev + "%");
+            }
+            catch(Exception e){
+                results.setText("Not a double");
             }
         });
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btnDivide.setOnClickListener(view -> {
+            try {
+                isOperatorPresent = true;
                 String strPrev = resultsPreview.getText().toString();
-                strPrev = strPrev + "1";
-                resultsPreview.setText(strPrev);
-                if(isOperatorPresent)
-                {
-                    results.setText("");
-                }
-
-                String str = results.getText().toString();
-
-                if(str.equals(""))
-                {
-                    results.setText("1");
-                }
-                else {
-                    str = str + "1";
-                    results.setText(str);
-                }
+                resultsPreview.setText(strPrev + " / ");
+            }
+            catch(Exception e){
+                results.setText("Enter a Number first");
             }
         });
-        btn2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btnMultiply.setOnClickListener(view -> {
+            try {
+                isOperatorPresent = true;
                 String strPrev = resultsPreview.getText().toString();
-                strPrev = strPrev + "2";
-                resultsPreview.setText(strPrev);
-                if(isOperatorPresent)
-                {
-                    results.setText("");
-                }
-
-                String str = results.getText().toString();
-                if(str.equals(""))
-                {
-                    results.setText("2");
-
-                }
-                else {
-                    str = str + "2";
-                    results.setText(str);
-                }
+                resultsPreview.setText(strPrev + " * ");
+            }
+            catch(Exception e){
+                results.setText("Enter a Number first");
             }
         });
-        btn3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String strPrev = resultsPreview.getText().toString();
-                strPrev = strPrev + "3";
-                resultsPreview.setText(strPrev);
-                if(isOperatorPresent)
-                {
-
-                    results.setText("");
-                }
-                String str = results.getText().toString();
-
-                if(str.equals(""))
-                {
-                    results.setText("3");
-                }
-                else {
-                    str = str + "3";
-                    results.setText(str);
-
-                }
-            }
-        });
-        btn4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String strPrev = resultsPreview.getText().toString();
-                strPrev = strPrev + "4";
-                resultsPreview.setText(strPrev);
-                if(isOperatorPresent)
-                {
-
-                    results.setText("");
-                }
-                String str = results.getText().toString();
-
-                if(str.equals(""))
-                {
-                    results.setText("4");
-
-                }
-                else {
-                    str = str + "4";
-                    results.setText(str);
-
-                }
-            }
-        });
-        btn5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String strPrev = resultsPreview.getText().toString();
-                strPrev = strPrev + "5";
-                resultsPreview.setText(strPrev);
-                if(isOperatorPresent)
-                {
-                    results.setText("");
-                }
-
-                String str = results.getText().toString();
-
-                if(str.equals(""))
-                {
-                    results.setText("5");
-
-                }
-                else {
-                    str = str + "5";
-                    results.setText(str);
-
-                }
-            }
-        });
-        btn6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String strPrev = resultsPreview.getText().toString();
-                strPrev = strPrev + "6";
-                resultsPreview.setText(strPrev);
-                if(isOperatorPresent)
-                {
-
-                    results.setText("");
-                }
-
-                String str = results.getText().toString();
-
-                if(str.equals(""))
-                {
-                    results.setText("6");
-
-                }
-                else {
-                    str = str + "6";
-                    results.setText(str);
-
-                }
-            }
-        });
-        btn7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String strPrev = resultsPreview.getText().toString();
-                strPrev = strPrev + "7";
-                resultsPreview.setText(strPrev);
-                if(isOperatorPresent)
-                {
-
-                    results.setText("");
-                }
-                String str = results.getText().toString();
-
-                if(str.equals(""))
-                {
-                    results.setText("7");
-
-                }
-                else {
-                    str = str + "7";
-                    results.setText(str);
-
-                }
-            }
-        });
-        btn8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String strPrev = resultsPreview.getText().toString();
-                strPrev = strPrev + "8";
-                resultsPreview.setText(strPrev);
-                if(isOperatorPresent)
-                {
-
-                    results.setText("");
-
-                }
-                String str = results.getText().toString();
-
-                if(str.equals(""))
-                {
-                    results.setText("8");
-
-                }
-                else {
-                    str = str + "8";
-                    results.setText(str);
-
-                }
-            }
-        });
-        btn9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String strPrev = resultsPreview.getText().toString();
-                strPrev = strPrev + "9";
-                resultsPreview.setText(strPrev);
-                if(isOperatorPresent)
-                {
-
-                    results.setText("");
-                }
-
-                String str = results.getText().toString();
-
-                if(str.equals(""))
-                {
-                    results.setText("9");
-
-                }
-                else {
-                    str = str + "9";
-                    results.setText(str);
-
-                }
-            }
-        });
-        btnPi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String strPrev = resultsPreview.getText().toString();
-                strPrev = strPrev + "\u03C0";
-                resultsPreview.setText(strPrev);
-                if(isOperatorPresent)
-                {
-
-                    results.setText("");
-                }
-
-                String str = results.getText().toString();
-
-                if(str.equals(""))
-                {
-                    results.setText("\u03C0");
-
-                }
-                else {
-                    str = str + "\u03C0";
-                    results.setText(str);
-
-                }
-            }
-        });
-        btnDecimal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        btnAdd.setOnClickListener(view -> {
+            try {
+                isOperatorPresent = true;
                 String str = results.getText().toString();
                 String strPrev = resultsPreview.getText().toString();
+                resultsPreview.setText(strPrev + " + ");
+            }
+            catch(Exception e){
+                results.setText("Enter a Number first");
+            }
+        });
+        btnSubstract.setOnClickListener(view -> {
+            try {
+                isOperatorPresent = true;
+                String str = results.getText().toString();
+                String strPrev = resultsPreview.getText().toString();
+                resultsPreview.setText(strPrev + " - ");
+            }
+            catch(Exception e){
+                results.setText("Enter a Number first");
+            }
+        });
+        btnExponent.setOnClickListener(view -> {
+            try {
+                isOperatorPresent = true;
+                String str = results.getText().toString();
+                String strPrev = resultsPreview.getText().toString();
+                resultsPreview.setText("e^("+strPrev+")");
+            }
+            catch(Exception e){
+                results.setText("Enter a Number first");
+            }
+        });
+        btn0.setOnClickListener(view -> {
+            String strPrev = resultsPreview.getText().toString();
+            strPrev = strPrev + "0";
+            resultsPreview.setText(strPrev);
+            if(isOperatorPresent)
+                results.setText("");isOperatorPresent=false;
+            String str = results.getText().toString();
+            if(str.equals(""))
+            {
+                results.setText("0");
+            }
+            else {
+                str = str + "0";
+                results.setText(str);
+            }
+        });
+        btn1.setOnClickListener(view -> {
+            String strPrev = resultsPreview.getText().toString();
+            strPrev = strPrev + "1";
+            resultsPreview.setText(strPrev);
+            if(isOperatorPresent)
+            {
+                results.setText("");isOperatorPresent=false;
+            }
+
+            String str = results.getText().toString();
+
+            if(str.equals(""))
+            {
+                results.setText("1");
+            }
+            else {
+                str = str + "1";
+                results.setText(str);
+            }
+        });
+        btn2.setOnClickListener(view -> {
+            String strPrev = resultsPreview.getText().toString();
+            strPrev = strPrev + "2";
+            resultsPreview.setText(strPrev);
+            if(isOperatorPresent)
+            {
+                results.setText("");isOperatorPresent=false;
+            }
+
+            String str = results.getText().toString();
+            if(str.equals(""))
+            {
+                results.setText("2");
+
+            }
+            else {
+                str = str + "2";
+                results.setText(str);
+            }
+        });
+        btn3.setOnClickListener(view -> {
+            String strPrev = resultsPreview.getText().toString();
+            strPrev = strPrev + "3";
+            resultsPreview.setText(strPrev);
+            if(isOperatorPresent)
+                results.setText("");isOperatorPresent=false;
+            String str = results.getText().toString();
+
+            if(str.equals(""))
+            {
+                results.setText("3");
+            }
+            else {
+                str = str + "3";
+                results.setText(str);
+
+            }
+        });
+        btn4.setOnClickListener(view -> {
+            String strPrev = resultsPreview.getText().toString();
+            strPrev = strPrev + "4";
+            resultsPreview.setText(strPrev);
+            if(isOperatorPresent)
+                results.setText("");isOperatorPresent=false;
+            String str = results.getText().toString();
+
+            if(str.equals(""))
+            {
+                results.setText("4");
+
+            }
+            else {
+                str = str + "4";
+                results.setText(str);
+
+            }
+        });
+        btn5.setOnClickListener(view -> {
+            String strPrev = resultsPreview.getText().toString();
+            strPrev = strPrev + "5";
+            resultsPreview.setText(strPrev);
+            if(isOperatorPresent)
+                results.setText("");isOperatorPresent=false;
+
+            String str = results.getText().toString();
+
+            if(str.equals(""))
+            {
+                results.setText("5");
+
+            }
+            else {
+                str = str + "5";
+                results.setText(str);
+
+            }
+        });
+        btn6.setOnClickListener(view -> {
+            String strPrev = resultsPreview.getText().toString();
+            strPrev = strPrev + "6";
+            resultsPreview.setText(strPrev);
+            if(isOperatorPresent)
+                results.setText("");isOperatorPresent=false;
+
+            String str = results.getText().toString();
+
+            if(str.equals(""))
+            {
+                results.setText("6");
+
+            }
+            else {
+                str = str + "6";
+                results.setText(str);
+
+            }
+        });
+        btn7.setOnClickListener(view -> {
+            String strPrev = resultsPreview.getText().toString();
+            strPrev = strPrev + "7";
+            resultsPreview.setText(strPrev);
+            if(isOperatorPresent)
+                results.setText("");isOperatorPresent=false;
+            String str = results.getText().toString();
+
+            if(str.equals(""))
+            {
+                results.setText("7");
+
+            }
+            else {
+                str = str + "7";
+                results.setText(str);
+
+            }
+        });
+        btn8.setOnClickListener(view -> {
+            String strPrev = resultsPreview.getText().toString();
+            strPrev = strPrev + "8";
+            resultsPreview.setText(strPrev);
+            if(isOperatorPresent)
+                results.setText("");isOperatorPresent=false;
+            String str = results.getText().toString();
+
+            if(str.equals(""))
+            {
+                results.setText("8");
+
+            }
+            else {
+                str = str + "8";
+                results.setText(str);
+
+            }
+        });
+        btn9.setOnClickListener(view -> {
+            String strPrev = resultsPreview.getText().toString();
+            strPrev = strPrev + "9";
+            resultsPreview.setText(strPrev);
+            if(isOperatorPresent)
+                results.setText("");isOperatorPresent=false;
+            String str = results.getText().toString();
+
+            if(str.equals(""))
+            {
+                results.setText("9");
+            }
+            else {
+                str = str + "9";
+                results.setText(str);
+            }
+        });
+        btnPi.setOnClickListener(view -> {
+            String strPrev = resultsPreview.getText().toString();
+            strPrev = strPrev + "\u03C0";
+            resultsPreview.setText(strPrev);
+            if (isOperatorPresent)
+                results.setText("");isOperatorPresent=false;
+            String str = results.getText().toString();
+
+            if(str.equals(""))
+                results.setText("\u03C0");
+            else {
+                str = str + "\u03C0";
+                results.setText(str);
+            }
+        });
+        btnDecimal.setOnClickListener(view -> {
+            String str = results.getText().toString();
+            String strPrev = resultsPreview.getText().toString();
+            if(str.contains(".")){}
+            else {
                 strPrev = strPrev + ".";
                 resultsPreview.setText(strPrev);
-                if(str.equals(""))
-                {
+                if(str.equals("")) {
                     results.setText("0.");
                 }
                 else {
