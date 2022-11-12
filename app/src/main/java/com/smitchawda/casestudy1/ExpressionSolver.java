@@ -113,17 +113,38 @@ public class ExpressionSolver {
 		}
 		double answer=0.0;
 		int startingPosition = positionPointer;
-		if((ch>='0' && ch<='9') || ch=='.' || ch=='%')
+		if((ch>='0' && ch<='9') || ch=='.' || ch=='%' || ch=='\u03C0')
 		{
 			/*numbers detected*/
 			while((ch>='0' && ch<='9') || ch=='.')
 			{
 				nextChar();
 			}
-			answer = Double.parseDouble(eqn.substring(startingPosition, positionPointer));
+			if(ch!='\u03C0')
+				answer = Double.parseDouble(eqn.substring(startingPosition, positionPointer));
 			if(ch=='%')
 			{
 				answer=percentOperations(val,answer);
+				nextChar();
+			}
+			if(ch=='\u03C0')
+			{
+				System.out.println("Pi is detected.");
+				int p = positionPointer;
+				char charPreceedingPi;
+				if(p>0)
+					charPreceedingPi = eqn.charAt(--p);
+				else
+					charPreceedingPi = eqn.charAt(p);
+				System.out.println("P: "+p);
+				if((charPreceedingPi>'0' && charPreceedingPi<'9') || charPreceedingPi=='.')
+				{
+					System.out.println("Char: "+charPreceedingPi);
+					answer = Double.parseDouble(charPreceedingPi+"")*Math.PI;
+				}
+				else {
+					answer = Math.PI;
+				}
 				nextChar();
 			}
 		}
@@ -220,15 +241,13 @@ public class ExpressionSolver {
 	public double evaluate() {
 		/*Jump pointer to the next char*/
 		nextChar();
-		double answer = parseCombinedTerm();
-		return answer;
+		return parseCombinedTerm();
 	}
 
 /*Non-logic methods*/
 
 	/**
 	 * This method is used to set the equations
-	 * @param eqn
 	 */
 	public void setEqn(String eqn) {
 		this.eqn = eqn;
