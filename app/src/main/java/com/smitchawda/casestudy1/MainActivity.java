@@ -54,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
     //Operations variable
     boolean isOperatorPresent=false;
     double memory = 0.0;
+    short clearCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,11 +74,25 @@ public class MainActivity extends AppCompatActivity {
      */
     private void eventListeners(){
         btnClear.setOnClickListener(view -> {
-            isOperatorPresent=false;
-//                leftOperand=0;
-//                rightOperand=0;
-            results.setText("");
-            resultsPreview.setText("");
+            clearCounter++;
+            switch (clearCounter){
+                case 1: {
+                    results.setText("");
+                    break;
+                }
+                case 2: {
+                    isOperatorPresent = false; //clear operator
+                    results.setText(""); //clear calc text
+                    resultsPreview.setText(""); //clear calc preview
+                    memory = 0.0D; //clear memory
+                    break;
+                }
+                default: {
+                    clearCounter = 0;
+                    break;
+                }
+            }
+
         });
         btnBackSpace.setOnClickListener(view -> {
             try {
