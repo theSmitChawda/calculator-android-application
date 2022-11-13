@@ -452,7 +452,9 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else {
                     ExpressionSolver solver = new ExpressionSolver(resultsPreview.getText().toString());
-                    results.setText(solver.evaluate()+"");
+                    double answer = solver.evaluate();
+                    results.setText(answer+"");
+                    resultsPreview.setText(answer+"");
                 }
             }
         });
