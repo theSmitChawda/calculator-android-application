@@ -390,59 +390,45 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-        btnMadd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try{
-                    if(results.getText().toString().equals("\u03C0")) {
-                        memory+=Math.PI;
-                    }
-                    else
-                    {
-                        Double currentValue = Double.parseDouble(results.getText().toString());
-                        memory += currentValue;
-                    }
+        btnMadd.setOnClickListener(view -> {
+            try{
+                if(results.getText().toString().equals("\u03C0")) {
+                    memory+=Math.PI;
                 }
-                catch(Exception e)
+                else
                 {
-                    System.out.println("No decimal found");
-                }
-            }
-        });
-        btnMsub.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try{
                     Double currentValue = Double.parseDouble(results.getText().toString());
-                    memory -= currentValue;
-                }
-                catch(Exception e)
-                {
-                    System.out.println("No decimal found");
+                    memory += currentValue;
                 }
             }
-        });
-        btnMr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String strPrev = resultsPreview.getText().toString();
-                if(memory==Math.PI)
-                {
-                    resultsPreview.setText(strPrev + " \u03C0");
-                    results.setText("\u03C0" + "");
-                }
-                else {
-                    resultsPreview.setText(strPrev + " " + memory);
-                    results.setText(memory + "");
-                }
+            catch(Exception e)
+            {
+                System.out.println("No decimal found");
             }
         });
-        btnMclear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                memory = 0.0;
+        btnMsub.setOnClickListener(view -> {
+            try{
+                Double currentValue = Double.parseDouble(results.getText().toString());
+                memory -= currentValue;
+            }
+            catch(Exception e)
+            {
+                System.out.println("No decimal found");
             }
         });
+        btnMr.setOnClickListener(view -> {
+            String strPrev = resultsPreview.getText().toString();
+            if(memory==Math.PI)
+            {
+                resultsPreview.setText(strPrev + " \u03C0");
+                results.setText("\u03C0" + "");
+            }
+            else {
+                resultsPreview.setText(strPrev + " " + memory);
+                results.setText(memory + "");
+            }
+        });
+        btnMclear.setOnClickListener(view -> memory = 0.0);
         btnEquals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
