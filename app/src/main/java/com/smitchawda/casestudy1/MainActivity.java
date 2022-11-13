@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 /**
  * Name: Smit Chawda
+ * 
  * Email: chawdas@sheridancollege.ca
  */
 public class MainActivity extends AppCompatActivity {
