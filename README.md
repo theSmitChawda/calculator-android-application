@@ -4,7 +4,7 @@
 
 ### Developed by: Smit Chawda
 ### Term: Semester 6 - Fall 2022
-### College: Sheridan College
+### College: Sheridan College - Faculty of Applied Science and Technology
 ### Course: IoT with Android Applications
 
 
