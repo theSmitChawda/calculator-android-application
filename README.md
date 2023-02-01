@@ -1,6 +1,6 @@
 # Calculator Android Application
 
-> Java, Android, OOP, Gradle, Bluestack emulator, XML
+> TAGS: Java, Android, OOP, Gradle, Bluestack emulator, XML
 
 ## The following is a case study android application to replicate a function calculator application
 
