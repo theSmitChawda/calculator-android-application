@@ -1,5 +1,7 @@
 # Calculator Android Application
 
+> IMP. NOTE: The backend logic for calculation is removed from this application. Please reach out to know more.
+
 ----------------------------------------------------------------------------------------------
 
 > TAGS: Java, Android, OOP, Gradle, Bluestack emulator, XML
